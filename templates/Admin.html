@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+:root{
+  --violet:#6c5ce7;
+  --pink:#FC427B;
+  --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+        
+        body{
+        background:url("/image/insu.jpg")
+    
+        }
+            .login{
+                width: 382px;
+                overflow: hidden;
+                margin:60px auto;
+               
+                padding: 80px;
+                border-radius: 15px;
+                background-color: aliceblue;
+            }
+            input[type=text], input[type=password] {
+                 width: 100%;
+                 padding: 12px 20px;
+                 margin: 8px 0;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 box-sizing: border-box;
+            }
+        </style>
+    
+    <body>
+        <input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+        <form  th:action="@{/adminLogin}" method="get" th:object="${admin}" >
+            <div class="login">
+            <label for="learnerId"><strong>Enter Your Admin Code :</strong></label>
+            <input type="text" placeholder="6797" th:field="*{adminId}" required><br><br>  
+             
+            <label for="password"><strong>Enter password:</strong></label>
+            <input type="password" placeholder="Mindspace" th:field="*{adminPassword}" required><br><br>
+            <div><button type="submit">Login</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+
+        </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Error Message</title>
+<!--Google Fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/Error.css}">
+</head>
+<body>
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h2>Error Alert !!</h2>
+        <p th:text="Not enough Mark to generate certficate so Take RETEST" style="color: red;"></p>
+        <label>Retry</label>
+        <input type="button" value="Ok" th:onclick="location.href='javascript:history.back()'" class="Error">
+    </div>
+    
+    <!--Script-->
+    <script type="text/javascript">
+        window.addEventListener("load", function() {
+            setTimeout(function open(event) {
+                document.querySelector(".popup").style.display = "block";
+            }, 600)
+        });
+
+        document.querySelector("#close").addEventListener("click", function() {
+            document.querySelector(".popup").style.display = "none";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+<input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+ <form  th:action="@{/insertCourse}" method="post" th:object="${course}" enctype="multipart/form-data">
+            <div class="login">
+            <label  ><strong>Enter Category Code :</strong></label>
+        
+            <input type="number" th:field="*{categeoryId}" required><br><br>
+              
+            <label ><strong>Enter Category Name :</strong></label>
+            <input type="text"  th:field="*{categoryName}" required><br><br>
+              
+             <label ><strong>Enter Courses :</strong></label>
+            <input type="text"  th:field="*{descriptions}" required><br><br>
+              
+           <label ><strong>Enter Amount :</strong></label>
+             <input type="text"  th:field="*{amount}" required><br><br> 
+            
+              
+         <label for="img"  >Select image:</label>
+  <input type="file" id="img" th:field="*{image}" >
+            
+             
+             
+            <div><button type="submit">Ok</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+         </div>
+         </form>
+
+</body>
+</html>

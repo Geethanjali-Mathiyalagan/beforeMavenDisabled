@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Registration</title>
+<link rel="stylesheet" th:href="@{/css/Admin.css}">
+</head>
+<body>
+<div class="side-menu">
+        <div class="brand-name">
+            <h1>MINDSPACE</h1>
+        </div>
+        <ul>
+        You are logged in <span th:text="${session.ID}"></span>
+            <li><img src="/image/dashboard.png" alt="">&nbsp; <span>Dashboard</span> </li>
+            
+            <li><img src="/image/reading-book (1).png" alt="">&nbsp;<a th:href="@{/addMcq}" class="aa">Add Questions</a> </li>
+            <li><img src="/image/teacher2.png" alt="">&nbsp;<a th:href="@{/listOfQuestions}" class="aa">view questions</a> </li>
+            <li><img src="/image/school.png" alt="">&nbsp;<a th:href="@{/listOfLearners}" class="aa">View Learners</a></li>
+            <li><img src="/image/videologo.png" alt="" class="videoLogo" >&nbsp; <a th:href="@{/addVideos}" class="aa">Add Videos</a> </li>
+             <li><img src="/image/videologo.png" alt="" class="videoLogo">&nbsp; <a th:href="@{/getVideos}" class="aa">Videos</a></li>
+             <li><img src="/image/learner.jpg" alt="" class="videoLogo"><a th:href="@{/learners}" class="aa">LearnersList</a>
+            <li><img src="/image/logout.png" alt="" class="videoLogo">&nbsp;<a th:href="@{/}" class="aa">LogOut</a> </li> 
+        </ul>
+    </div>
+    <div class="container">
+
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                    <img src="/image/class.png" alt="" class="videoLogo">
+                        <h1 th:text="${LearnerCount}"></h1>
+                        <h3>Total Learners</h3>
+                    </div>
+                    </div>
+                    <div class="card">
+                    <div class="box">
+                     <img src="/image/student.png" alt="" class="videoLogo">
+                        <h1 th:text="${instCount}"></h1>
+                        <h3>LearnerCount</h3>
+                    </div>
+                   
+                </div>
+                    <div class="card">
+                    <div class="box">
+                      <img src="/image/graduated (1).png" alt="" class="videoLogo">
+                        <h1 th:text="${testCount}"></h1>
+                        <h3>Test attended Learners</h3>
+                    </div>
+                   
+                </div>
+              
+            
+        </div>
+    </div>
+</div>
+</body>
+</html>

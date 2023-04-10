@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/css/Admin.css}">
+<title>Insert title here</title>
+</head>
+
+<body>
+ <div class="side-menu">
+        <div class="brand-name">
+            <h1>MINDSPACE</h1>
+        </div>
+        <ul>
+     WelCome Admin<span th:text="${session.ID}"></span>
+            <li><img src="/image/dashboard.png" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="/image/reading-book (1).png" alt="">&nbsp;<div class="dropdown">
+              
+                <button class="dropbtn">Learners</button>
+                <div class="dropdown-content">
+                 
+                  <a th:href="@{/UserList}">ViewLearnerList</a>
+                  <a th:href="@{/paymentList}">Payment List</a>
+                <a th:href="@{/Learners}">Learners Result</a>
+                </div>
+              </div> </li>
+ 
+            <li><img src="/image/teacher2.png" alt="">&nbsp;
+            <div class="dropdown">
+                <button class="dropbtn">Instructors</button>
+                <div class="dropdown-content">
+                  <a th:href="@{/addInstructors}">AddInstructors</a>
+                  <a th:href="@{/instructorList}">ViewInstructorList</a>
+                  <a th:href="@{/removeInstrutors}">RemoveInstructors</a>
+                  <a th:href="@{/updateInstructors}">UpdateInstructors</a>
+                </div>
+            </div>
+            
+             </li>
+           
+       
+            <li><img src="/image/school.png" alt="">&nbsp;<div class="dropdown">
+                <button class="dropbtn">Courses</button>
+                <div class="dropdown-content">
+                  <a th:href="@{/addCourses}">AddCategories</a>
+                  <a th:href="@{/insertCourses}">AddCourse</a>
+                  <a th:href="@{/courseNamesList}">ViewCategoryList</a>
+                  <a th:href="@{/listOfCourseDetail}">ViewCourseList</a>
+                  <a th:href="@{/deleteCourse}">RemoveCourses</a>
+                  <a th:href="@{/updateCourses}">UpdateCourses</a>
+           
+         </div>   
+</li>
+             
+            
+            <li><img src="/image/payment.png" alt="">&nbsp;<a href="/paymentList">Income</a> </li>
+             
+             <div class="user">
+                    <a th:href="@{/home}" class="btn">Logout</a>
+                   
+                    
+                </div>
+            <li><img src="/image/logout.png" alt="" class="videoLogo">&nbsp;<a href="/home">LogOut</a> </li> 
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="user">
+                    <a href="@{/home}" class="btn1">Home</a>
+                   
+                    
+                </div> 
+                  
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1 th:text="${LearnerCount}"></h1>
+                        <h3>Learners</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="/image/class.png" alt="" class="videoLogo">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                         <h1 th:text="${InstructorCount}"></h1>
+                        <h3>Instructors</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="/image/teacher.png" alt="" class="videoLogo">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1 th:text="${CourseCount}"></h1>
+                        <h3>Courses</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="/image/webinar.png" alt="" class="videoLogo">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+           <h1 th:text="${Income}"></h1>
+                        <h3>Income</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="/image/cash-payment.png" alt=""  class="videoLogo">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                    <img src="/image/books.png" alt="" class="videoLogo">
+           <h1 th:text="${Count}"></h1>
+                        <h3 th:text="${CourseName}"></h3>
+                    </div>
+                    <div class="icon-case">
+                       
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                    <img src="/image/books (1).png" alt="" class="videoLogo">
+           <h1 th:text="${MinCount}"></h1>
+                        <h3 th:text="${MinCountCourseName}"></h3>
+                    </div>
+                    <div class="icon-case">
+                       
+                    </div>
+                </div>
+            </div>
+      
+                </div>
+            </div>
+       
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/About.css}">
+</head>
+<body>
+ <div class="wrapper">
+
+        <div class="background-container">
+            <div class="bg-1"></div>
+            <div class="bg-2"></div>
+    
+        </div>
+        <div class="about-container">
+            
+            <div class="image-container">
+                <img src="/image/about.jpg" alt="">
+                
+            </div>
+
+            <div class="text-container">
+                <h1>About us</h1>
+                <p>There is no such thing as "one size fits all" in education; each educator and child has unique challenges and goals.<br> We celebrate the diversity of our users by offering differentiated resources that can meet a wide range of educational needs - and raise kids' confidence in learning. </p>
+                <a th:href="@{/home}">BACK</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

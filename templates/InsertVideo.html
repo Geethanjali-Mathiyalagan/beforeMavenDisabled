@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Video.css}">
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+	<input TYPE="button" VALUE="Back" onClick="history.go(-1);">
+       
+<form name="Upload" th:action="@{/insertJavaScriptVideo}" method="post"  th:object="${addVideos}" enctype="multipart/form-data">
+            <div class="upload">
+          
+         <label for="instructorId" ><strong>Enter InstructorId :</strong></label> 
+            <input type="text" name="instructorId" th:value="${message}" required readonly  ><br><br>  
+            
+            <label ><strong>Course Name :</strong></label>
+         <select name="courseName" id="courseName"
+              th:field="*{courseName}" class="option">
+
+              <option th:each="courseName : ${dynamic}" th:value="${courseName}"
+              th:text="${courseName}"></option>
+             
+             </select>
+            
+             <label for="video" ><strong>Upload Video :</strong></label>  
+             <input type="file" name=videos  id="video" >
+            
+         <label for="description" ><strong>Enter description about Video:</strong></label> 
+            <input type="text" name="descriptionOfVideo" th:field="*{descriptionOfVideo}" ><br><br>     
+            
+            <div><button type="submit">Submit</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+         </div>
+         </form>  
+</body>
+</html>

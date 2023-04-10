@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/QuestionStyle.css}">
+</head>
+<style>
+body
+{
+    background:url("/image/Registers.jpg");
+   background-size:cover;
+    background-repeat: no-repeat;
+
+}
+.a{
+color: white;
+}
+.res-header{
+color: white;
+}
+.result-question{
+color: white;
+}
+.wrong{
+color: white;
+}
+.correct{
+color: white;
+}
+.ab{
+color:white;
+}
+</style>
+
+<body>
+<header class="header bg-primary">
+      
+        <div class="left-title"> Quiz</div>
+        <div class="right-title">Total Questions: <span id="tque"></span></div>
+        <div class="clearfix"></div>
+      </header>
+  <div class="content">
+  <div class="container-fluid">
+      
+      <div class="row">
+          <div class="col-sm-12">
+              <div id="result" class="quiz-body">
+              <form name="quizForm" onSubmit="" th:action="@{/Scores}" method="post">
+              
+            <input type="hidden" name="learnerId" value="<%=id%>"required>
+            <input type="hidden" name="instructorId" value="<%=insrtuctorId%>" required>
+                  <legend class="form-group" >
+                  
+                  <h4><span id="qid"  class="a">1.</span> <span id="question" class="a"></span></h4>
+                  
+                  <div class="option-block-container" id="question-options">
+                    
+                   </div> 
+                   </legend>
+                   <button  name="previous" id="previous" class="btn btn-success">Previous</button>
+                   &nbsp;
+                   <button  type="submit" name="next" id="next" onclick="changeFunc()" class="btn btn-success">Next</button>
+          
+             </form>
+             </div>
+          </div>
+
+      </div> 
+  </div> 
+  </div> 
+   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+ <script th:src="@{/Javascript/question.js}"></script> 
+  
+ 
+  
+</body>
+<form th:action="@{/home}" method="get">
+
+<button id="submitForm">Submit</button>
+</form>
+<script>
+   $("#submitForm").click(function() {
+      alert(" Your Certificate Will received in Two Days");
+   });
+</script>
+</html>

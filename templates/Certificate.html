@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style type='text/css'>
+            body, html {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                color: black;
+                display: table;
+                font-family: Georgia, serif;
+                font-size: 24px;
+                text-align: center;
+        background:url("/image/Registers.jpg");
+      background-size:cover;
+      background-repeat: no-repeat;
+}    
+            
+            
+            
+            .container {
+               
+                border: 20px solid tan;
+                width: 750px;
+                height:463px;
+                 display: table-cell;
+                vertical-align: middle; 
+                background: white; 
+            }
+            .logo {
+               margin-top:-10px;
+                color: tan;
+                font-size: 35px;
+                height:40px;
+            }
+      .logo img{
+      height:40px;
+      width:35px;
+      margin-top:-10px;
+      }
+    
+            .marquee {
+                color:olive;
+                font-size: 48px;
+                margin: 20px;
+            }
+            .assignment {
+                margin: 20px;
+                 
+            }
+            .person {
+                border-bottom: 2px solid black;
+                font-size: 32px;
+                font-style: italic;
+                margin: 20px auto;
+                width: 400px;
+                 
+            }
+            .reason {
+                margin: 20px;
+                 
+            }
+            
+           .btn{
+            margin-top: -5px;
+            margin-left: 1000px;
+            } 
+            
+            
+     .btnblue
+     {
+      
+       height:40px;
+         margin-top: -980px;
+       }     
+        
+            
+        
+        </style>
+ <body>
+    
+       <div class="backButton">
+       <form th:action="@{/Rated}">
+       	<button type ="submit" class="btn" >Next</button>
+       	<input TYPE="button" VALUE="Back" onClick="history.go(-1);">
+       
+       	</form>
+       	
+       </div>
+    
+    
+    
+    <div id="contentToPrint" >
+     <div class="container">
+            <div class="logo">
+             <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="30" height="30" class="logo">  MINDSPACE 
+            </div>
+
+            <div class="marquee">
+                Certificate of Completion
+            </div>
+
+            <div class="assignment">
+                This certificate is presented to
+            </div>
+
+            <div class="person">
+                <span th:text="${session.learnersName}"></span>
+            </div>
+                   
+            <div class="reason">
+            For completing the Course <span th:text="${session.JAVA}"></span> <br/>
+            with percentage <span th:text="${session.percentage}"></span>
+                
+       
+            </div>
+        </div>
+        </div>
+       
+       	<div class="form-actions top">
+                            <div class="row" style="margin-left: 260PX;">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btnblue" type="button" onclick="printContent('contentToPrint')" style="width: 100px;">
+                                        download
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+ <script >
+ function printContent(el) {
+     var restorepage = document.body.innerHTML;
+     var printcontent = document.getElementById(el).innerHTML;
+     document.body.innerHTML = printcontent;
+     window.print();
+     document.body.innerHTML = restorepage;
+ }
+ </script>
+       	
+       	
+       	
+    </body>
+</html>

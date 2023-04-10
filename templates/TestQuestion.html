@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/quiz}" method="post">
+    <div th:each="list: ${questions}">
+        <h3 th:text="${list.question}"></h3>
+       <!--  <div th:each="option, optionIndex : ${questionNo.option1}"> -->
+           <!--  <label>
+                <input type="radio" th:field="*{[${questionIndex.index}].options[${optionIndex.index}].selected}" th:value="true"/>
+                <span th:text="${option.text}"></span>
+            </label> -->
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

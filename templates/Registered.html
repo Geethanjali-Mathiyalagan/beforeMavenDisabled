@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<style>
+
+:root{
+  --violet:#6c5ce7;
+  --pink:#FC427B;
+  --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+
+    *
+{
+    padding: 0px;
+    margin:  0px;
+}
+body
+{
+    background:url("/image/Registers.jpg");
+   background-size:cover;
+    background-repeat: no-repeat;
+}
+.card
+{
+    width: 380px;
+    height: 510px;
+    position: relative;
+    margin: 50px auto;
+    border-radius: 10px;
+    font-family: tahoma;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
+
+.card > div
+{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    background-color:azure;
+}
+
+.card .front
+{
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.card .front p
+{
+    text-align: center;
+}
+
+.card .front form button
+{
+    background-color:#FFB30E;
+    padding: 12px 60px 12px 60px; 
+    margin-top:30px;
+    cursor: pointer;
+}
+
+.f1
+{
+    padding: 13px 60px 13px 60px;
+    border-radius: 4px;
+    background-color:#f0f5f9;
+    margin: 7px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+.card .front img
+{
+    width: 110px;
+    height: 110px;
+    margin: 20px 30px 50px 30px
+}
+.login_word
+{
+    margin:30px auto;
+    border-bottom:2px solid #FFB30E;
+    width:60px;
+    font-weight: bold;
+}
+.not_registered_word
+{
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+.card .front form p
+{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.card .front span
+{
+    cursor: pointer;
+    color:#FFB30E;
+}
+
+.card .back
+{
+    z-index: 2;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+.signup_word
+{
+    margin:45px auto 15px auto;
+    border-bottom:2px solid #FFB30E;
+    width:70px;
+    font-weight: bold;
+}
+
+#signUp button
+{
+    background-color:#FFB30E; 
+    padding: 12px 60px 12px 60px; 
+    margin-top:30px
+}
+.back{
+height: 45px;
+width: 70px;
+}
+</style>
+<input TYPE="button" VALUE="Back" onClick="history.go(-1);" class="back">
+<button></button>
+<body onload="login_signUp()">
+<div class="card" id="card">
+<div class="front">
+  <p class="login_word">LOG IN</p>
+	
+        <form  th:action="@{/learnerLogin}" th:object="${user}">
+<label for="learnerId" ><strong>Enter LearnerCode :</strong></label>
+            <input type="number" placeholder="learnerId" th:field="*{learnerId}" required><br><br>  
+            
+            <label for="name"><strong>Enter Learner Name:</strong></label>
+            <input type="text" placeholder="Geethanjali" th:field="*{learnerName}" required><br><br>  
+          
+            <label for="password"><strong>Enter password:</strong></label>
+            <input type="password" placeholder="Mindspace" th:field="*{learnerPassword}" id="password" required><br><br>
+             
+           
+          
+                    <button class="f1" name="login" value="clicked">Log in</button>
+                    <p>Not registered? <span onclick="flip()">Create an account</span></p>
+         
+           <p>Forgot <a href="Forgot.jsp">&ensp;Password</a></p>
+        </form>
+        </div>
+        <div class="back">
+         <p class="signup_word">SIGN UP</p>
+        <form id ="registerform" onsubmit="validate()" th:action="@{/Registration}" method="get" th:object="${user}">
+           
+         <label for="name"><strong>Enter Name:</strong></label>
+           <input type="text" placeholder= "Geethanjali" th:field="*{learnerName}" id ="Name" class="f1" required><br>
+          <br>
+           <label for="email"><strong>Enter email id:</strong></label>
+           <input type="email" placeholder="mindspace@gmail.com" th:field="*{learnerMailId}" id="emailId" class="f1" required><br>
+          <br>
+
+           
+           <label for="password"><strong>Enter password:</strong></label>
+            <input type="password" placeholder="Mindspace" th:field="*{learnerPassword}" id="learnerpassword" required><br><br>
+             <input type="checkbox" onclick="myFunction()">Show Password
+         
+
+            
+         
+           <button class="f1" name="signup" value="clicked"  onclick="someFunc()">Register</button>&emsp;&emsp;&emsp;
+           
+
+        </form>
+        </div>
+        </div>
+        </body>
+        <script>
+        
+        
+        function someFunc() {
+        	 nameValidate();
+        	validatePassword();
+        	ValidateEmail();
+        	
+        }
+        
+     
+        let card ;
+
+        function login_signUp()
+        {
+            document.getElementById("registerform").addEventListener("", function(event){
+                card.style.transform = 'rotateY(0deg)';
+                event.preventDefault(); 
+            });
+
+            card = document.getElementById('card');
+        }
+
+
+        function flip()
+        {
+            card.style.transform = 'rotateY(180deg)';
+        }
+
+     
+       
+        function ValidateEmail() {
+           var regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        	  var validRegex =document.getElementById('emailId').value;
+        	  errors = []; 
+        	 
+        	  {
+        	   if (regex.test(validRegex))
+        	    {
+        	      return true;
+        	    }
+        	   else{
+        	      alert("You have entered an invalid email address! eg:mindspace123@gmail.com")
+        	      return false;
+        	   }
+        	  }
+
+        	}
+        function validatePassword() {
+            var p = document.getElementById('learnerpassword').value;
+                errors = [];
+           
+           
+            if (p.search(/[0-9]/) < 0) {
+                errors.push("Your password must contain at least one digit."); 
+                
+            }
+            if (p.search(/[a-z]/) < 0) {
+            errors.push("Your password must contain at least one lowercase letter.")
+            }                     
+            if (p.search(/[A-Z]/) < 0) { 
+            	errors.push("Your password must contain at least one uppercase letter.")  
+            	} 
+            if (errors.length > 0) {
+                alert(errors.join("\n"));
+                return false;
+            }
+           
+        } 
+        
+        function nameValidate(){
+        	var regName = /[a-zA-Z]/;
+        	var name = document.getElementById('Name').value;
+        	if(!regName.test(name)){
+        	    alert('Name must be in Alphabates!!');
+        	    return false;
+        	}
+        	
+        }
+        
+        
+        
+        function myFunction() {
+      	  var x = document.getElementById("learnerpassword");
+      	  if (x.type === "learnerpassword") {
+      	    x.type = "text";
+      	  } else {
+      	    x.type = "learnerpassword";
+      	  }
+      	}
+      
+        
+       
+          function validate(){
+             
+               let learnerName=document.querySelector("#Name").value;
+               let emailId=document.querySelector("#emailId").value;
+               let password=document.querySelector("#learnerpassword").value;
+
+               try{
+               
+                  if (learnerName==null || learnerName.trim()=="") {
+                      throw new Error("Learnername cannot be empty");
+                  }
+                 
+                  else if (Name.length<3){
+                      throw new Error("Learner Name must be more than 3 characters");
+                      
+                  } 
+                 else if(learnerpassword.length==10){
+                  throw new Error("Oops..........Your Paswword length must be within  10  !");
+                 }
+                 else{ 
+                 
+                      let form = document.querySelector("#registerform");
+                  form.submit();
+                 }
+            
+              }
+                catch(err){
+                  console.error(err);
+                  console.log("Validation Failed: "+err.message);
+                  alert("Error: "+err.message);
+                }
+          }
+    
+      </script>
+
+</html>

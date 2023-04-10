@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>card payment</title>
+    <link rel="stylesheet" href="./CSS/payment.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script th:src="@{/Javascript/Payment.js}"></script>
+  </head>
+ 
+ <style>
+ 
+ 
+ 
+ :root{
+  --violet:#6c5ce7;
+  --pink:#FC427B;
+  --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+ 
+ body{
+ background: var(--gradient);
+    height: 100vh;
+    justify-content:
+     center;align-items: 
+     center;display: 
+     flex;
+   
+    }
+ 
+.launch
+{
+    height: 50px
+}
+.close
+{
+    font-size: 21px;
+    cursor: pointer
+}
+.modal-body
+{
+    height: 530px
+
+}
+.nav-tabs
+{
+    border:none !important;
+   display: table !important;
+   width: 100%
+}
+.nav-tabs .nav-link.active
+{
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff #ffffff #fff;
+    border-top: 3px solid blue !important
+}
+.nav-tabs .nav-link
+{
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-top: 3px solid #eee;
+    font-size: 20px
+}
+.nav-tabs .nav-link:hover
+{
+    border-color: #e9ecef #ffffff #ffffff
+}
+
+.nav-item
+{
+    display: table-cell
+}
+.form-control
+{
+    border-bottom: 1px solid #eee !important;
+    border:none;font-weight: 600
+}
+.form-control:focus
+{
+    color: #495057;
+    background-color: #fff;
+    border-color: #8bbafe;
+    outline: 0;
+    box-shadow: none
+}
+.inputbox
+{
+    position: relative;
+    margin-bottom: 20px;width: 100%
+}
+.inputbox span
+{
+    position: absolute;
+    top:7px;
+    left: 11px;
+    transition: 0.5s
+}
+.inputbox i
+{
+    position: absolute;
+    top: 13px;
+    right: 8px;
+    transition: 0.5s;
+    color: #3F51B5
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0
+}
+.inputbox input:focus~span
+{
+    transform: translateX(-0px) translateY(-15px);
+    font-size: 12px
+}
+.inputbox input:valid~span
+{
+    transform: translateX(-0px) translateY(-15px);
+    font-size: 12px
+}
+.pay button
+{
+    height: 47px;
+    border-radius: 37px
+   
+   
+}
+.pays{
+margin-top:-110px;
+ margin-right: -200px;
+
+}
+.video{
+margin-top: -100px;
+ margin-left: 90px;
+}
+
+h3{
+margin-left: -600px;
+
+}
+.buts{
+margin-top:-100px;
+margin-left: 400px;
+}
+body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+      }
+        h1 {
+          color: orange;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #404F5E;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-size:20px;
+          margin: 0;
+        }
+      em{
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left:-15px;
+      }
+      .card {
+      height:450px;
+        background: white;
+        padding: 40px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+      }
+       button
+      {
+      border: none;
+      margin-top: 60px;
+      }
+     .paymentprocess a
+      {
+      text-decoration: none;
+      color: white;
+      }
+      .paymentprocess
+      {
+      width: 50px;
+      background-color:red;
+      border: none;
+      border-radius:10px;
+      height: 50px;
+      margin-top: 30px;
+      }
+      .paymentprocess button
+      {
+      margin-top: -80px;
+      }
+      .paymentprocess{
+    margin-top: -2000px;
+      }
+ </style>
+ <body>
+ <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <em class="checkmark">✓</em>
+      </div>
+       
+        <p>Click yes to proceed with payment</p>
+         <button type="button" class="btn btn-primary launch" data-toggle="modal"
+data-target="#staticBackdrop">YES</button>
+      <button class="paymentprocess" ><a th:href=@{/home}>NO</a></button>
+      </div>
+      </body>
+      
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog"> 
+	<div class="modal-content">
+	<div class="modal-body">
+	<div class="text-right"> 
+	<em class="fa fa-close close" data-dismiss="modal"></em> </div>
+	<div class="tabs mt-3">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	<li class="nav-item" role="presentation">
+	<a class="nav-link active" id="visa-tab" data-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> 
+	<img alt="" src="https://i.imgur.com/sB4jftM.png" width="80"> </a> </li>
+	<li class="nav-item" role="presentation">
+	<a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="gpay" aria-selected="false">
+	<img alt="" src="./images/gpay1.jpg" width="80"> </a> </li> </ul> 
+	<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab"> 
+	<div class="mt-4 mx-4">
+	<div class="text-center"> 
+	<h5>Credit card</h5> </div> 
+	<div class="form mt-3"> 
+	<form th:action="@{/courseEnroll}" method="get">
+	<div class="inputbox">
+	<input type="hidden" placeholder="LearnerId" required readonly class="form-control" th:value="${session.learnerId}" name="learnerId">
+                   
+
+	<div class="inputbox"> 
+ <input type="hidden" placeholder="CategoryId" required readonly  class="form-control" th:value="${session.categoryId}" name="categoryId">
+	 </div>
+
+	<div class="inputbox"> 
+	 <input type="hidden" placeholder="InstructorCode" class="form-control" name="instructorId" th:value="${session.InstrcutorCode}" th:onkeyup="myfunction(Id)" id="Idvalue">
+	 </div>
+	
+	<div class="inputbox"> 
+	
+	  <select name="courseName" id="courseName"
+              class="form-control">
+
+              <option th:each="courseName : ${DynamicCourseName}" th:value="${courseName}"
+              th:text="${courseName}"></option>
+             
+             </select>
+	</div>
+	
+	 
+
+	<div class="inputbox"> 
+	<input type="number" placeholder="Card Number" name="paymentDetail" required class="form-control" id="cardDetail" th:onkeyup="cardNumberValidate()">
+	</div> 
+
+	 <div class="d-flex flex-row"> <div class="input-box">
+           
+                    <input type="tel" placeholder="amount" required readonly class="form-control" th:value="${session.amount}"  name="amount" >
+
+                </div>
+	
+
+	<div class="inputbox"> 
+	<input type="text" name="name" min="1" max="999" class="form-control" required="required" id="dateyear" onkeyup="expiryValidate()">
+	<span>Expiration Date</span> </div>
+
+	<div class="inputbox">
+	<input type="text" name="name" min="1" max="999" class="form-control" required="required" id="pin" onkeyup="pinValidate()">
+    <span>CVV</span> </div> </div>
+	
+	<div class="px-5 pay"> 
+	<button class="btn btn-success btn-block">Proceed to pay</button> 
+    </div> 
+</form>
+</div> 
+</div> 
+</div> 
+
+<div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab"> 
+	<div class="px-5 mt-5"> 
+<form th:action="@{/courseEnrolls}" method="get">
+		
+			<div class="inputbox">
+	<input type="hidden" placeholder="LearnerId" required readonly class="form-control" th:value="${session.learnerId}" name="learnerId">
+		</div>
+
+		<div class="inputbox"> 
+ <input type="hidden" placeholder="CategoryId" required readonly  class="form-control" th:value="${session.categoryId}" name="categoryId">
+	 </div>
+	 
+	 
+	<div class="inputbox"> 
+	 <input type="hidden" placeholder="Instructorcode" class="form-control" name="instructorId" th:value="${session.InstrcutorCode}" th:onkeyup="myfunction(Id)" id="Idvalue">
+	 </div>
+	
+		<div class="inputbox"> 
+	 <input type="text" placeholder="CourseName" class="form-control" name="courseName">
+	 <select name="courseName" id="courseName"
+              class="form-control">
+
+              <option th:each="courseName : ${DynamicCourseName}" th:value="${courseName}"
+              th:text="${courseName}"></option>
+             
+             </select>
+	</div>
+	 <div class="input-box">
+           
+                    <input type="tel" placeholder="amount" required readonly class="form-control" th:value="${session.amount}"  name="amount" >
+
+                </div>
+		
+		
+		 <div class="input-box">
+                    <input type="number" placeholder="Gpay Number" name="paymentDetail" required class="name" id="no" onkeyup="mobileNoValidation()">
+</div>
+	
+	
+<button class="btn btn-primary btn-block">Proceed to pay</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</html>

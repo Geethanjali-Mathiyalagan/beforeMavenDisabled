@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+
+       <input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+
+ <form  th:action="@{/removeLearners}" method="post" th:object="${remove}">
+            <div class="login">
+            <label for="learnerId" ><strong>Enter learnerCode :</strong></label>
+            <input type="text" th:field="*{learnerId}" required><br><br>  
+           
+            
+            <div><button type="submit">Ok</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+           </div>
+           </form>
+</body>
+</html>

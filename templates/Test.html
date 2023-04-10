@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Multiple Choice Questions</title>
+    <style>
+    body{
+            background:#e0ffff;
+    
+    }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .options input[type="radio"] {
+            margin-right: 5px;
+        }
+        
+        .container{
+       background:white;
+        margin-left:250px;
+       width:700px;
+        border-radius: .5rem;
+    }
+    button{
+    margin-left: 300px;
+    }
+    </style>
+</head>
+<body>
+<input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+<div class="container">
+<h1>Multiple Choice Questions</h1>
+    <form class="quiz-form" action="#" th:action="@{/submit}" method="post">
+    <div>
+    
+   <ul>
+    <li th:each="list : ${Question}">
+    <span  th:value="${list.questionNo}"></span>
+      <h3 th:text="${list.question}"></h3>
+      <ol type="A">
+        <li>
+          <label>
+            <input type="radio" name="radioGroup" id="option1" th:name="'question_' + ${list.correctAnswer}" th:value="${list.option1}"  />
+            <span th:text="${list.option1}"></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="radioGroup" id="option2" th:name="'question_' + ${list.correctAnswer}" th:value="${list.option2}"  />
+            <span th:text="${list.option2}"></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="radioGroup"  id="option3" th:name="'question_' + ${list.correctAnswer}" th:value="${list.option3}" />
+            <span th:text="${list.option3}"></span>
+          </label>
+        </li>
+     <input type="hidden" id="answer" th:value="${list.correctAnswer}"/>
+      </ol>
+    </li>
+  </ul> 
+   </div>
+
+    <input type="hidden" name="learnerId"  th:value="${session.learnId}"/>
+    <input type="hidden" name="instructorId" th:value="${session.codeOfInstructor}"/>
+    <input type="hidden" name="count" value="">
+<button id="submit">Submit</button>
+</form>
+</div>
+<script>
+var score;
+document.getElementById("submit").addEventListener("click", function() {
+    var selectedValues = [];
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            selectedValues.push(radioButtons[i].value);
+        }
+    }
+  var correctAnswer=[];
+  var buttons=document.querySelectorAll('input[type="hidden"]');
+  for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i]) {
+    	  correctAnswer.push(buttons[i].value);
+      }
+  }
+   var value=correctAnswer.includes(selectedValues);
+   
+   console.log(value);
+   
+
+   let count = 0;
+   for (let i = 0; i < correctAnswer.length; i++) {
+     if (correctAnswer.includes(selectedValues[i])) {
+       count++;
+     }
+   }
+
+  alert(`You scored: ${count}`);
+  document.querySelector('input[name="count"]').value = count;
+  document.querySelector('form').submit();
+ 
+});
+</script>
+
+</body>
+</html>

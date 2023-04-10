@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+<input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+ <form  th:action="@{/insertionOfCourse}" method="post" th:object="${AddCourse}" >
+            <div class="login">
+            
+         
+            <label><Strong>Enter Category Code</Strong></label>
+              <select name="categoryId" id="categoryId"
+              th:field="*{categoryId}" class="option">
+
+              <option th:each="categoryId : ${CategoryId}" th:value="${categoryId}"
+              th:text="${categoryId}"></option>
+             
+             </select>
+             
+              
+            <label ><strong>Enter Category Name :</strong></label>
+             <select name="categoryName" id="categoryName" class="option">>
+    <option value="ITandSOFTWARE">ITandSOFTWARE</option>
+    <option value="OFFICE PRODUCTIVITY">OFFICE PRODUCTIVITY</option>
+    <option value="PERSONAL DEVLOPMENT">PERSONAL DEVLOPMENT</option>
+    <option value="BUSINESS">BUSINESS</option>
+    <option value="FINANCE and ACCOUNTING">FINANCE and ACCOUNTING</option>
+  </select>
+              
+             <label ><strong>Enter Courses :</strong></label>
+            <input type="text"  th:field="*{courseName}" required><br><br>
+              
+          
+            
+             
+             
+            <div><button type="submit">Ok</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+         </div>
+         </form>
+
+</body>
+</html>

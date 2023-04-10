@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" th:href="@{/css/Feedback.css}">
+</head>
+<body>
+
+            
+								
+								
+								
+							<div class="container"  th:each="list:${Feedback}">
+          
+            <div class="card">
+          
+                    <div class="contant">
+
+						<img alt="" src="/image/prof.jpg" class="image">
+								<h3 class="h4">Learner Name :<span th:text="${list.learnerName}"></span></h3>
+								
+								<h3 class="h5">Review  :<span  th:text="${list.review}"></span></h3>
+									
+							    <h3 class=""><em class="fas fa-star">:</em><span th:text="${list.ratings}"></span></h3>
+								</div>
+								</div>
+								</div>
+								
+</body>
+</html>

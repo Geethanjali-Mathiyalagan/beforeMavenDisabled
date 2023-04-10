@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+<input TYPE="button" VALUE="Back" onClick="history.go(-1);">
+ <form  th:action="@{/updateDetail}" method="post" th:object="${marks}">
+            <div class="login">
+            <label for="learnerId" ><strong>Enter Learner Id :</strong></label>
+            <input type="text"  th:value="${session.LearnerCode}" th:onkeyup="myfunction(Id)" id="Idvalue" readonly="readonly"><br><br>  
+           
+              <label for="Grade" ><strong>Enter Grade :</strong></label>
+            <input type="text"  th:field="*{grade}" required><br><br> 
+             
+              <label for="percentage" ><strong>Enter Percentage :</strong></label>
+            <input type="text"  th:field="*{percentage}" required><br><br> 
+             
+            <div><button type="submit">Ok</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+           </div>
+           </form>
+</body>
+</html>

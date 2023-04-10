@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Remove.css}">
+</head>
+<body>
+	<input TYPE="button" VALUE="Back" onClick="history.go(-1);">
+       
+<form  th:action="@{/addQuestions}" method="post" th:object="${Question}">
+            <div class="login">
+            <label ><strong>Instructor Code :</strong></label>
+            <input type="number" name="instructorId" th:value="${message}" readonly><br><br>
+            
+           <label ><strong>Course Name :</strong></label>
+         <select name="courseName" id="courseName"
+              th:field="*{courseName}" class="option">
+
+              <option th:each="courseName : ${dynamic}" th:value="${courseName}"
+              th:text="${courseName}"></option>
+             
+             </select>
+     
+            <label ><strong>Type  Question :</strong></label>
+            <input type="text"  th:field="*{question}" required><br><br>
+              
+            <label ><strong>Option 1 :</strong></label>
+            <input type="text"  th:field="*{option1}" required><br><br>
+              
+             <label ><strong>Option 2 :</strong></label>
+            <input type="text"  th:field="*{option2}" required><br><br>
+              
+          
+             <label ><strong>Option 3 :</strong></label>
+             <input type="text" th:field="*{option3}" required><br><br> 
+            
+              
+         <label ><strong>Correct Answer :</strong></label>
+             <input type="text"  th:field="*{correctAnswer}" required><br><br> 
+            
+            <div><button type="submit">Submit</button>&emsp;
+           <button type="reset">Cancel</button></div><br>
+       </div>  
+</form>
+</body>
+</html>

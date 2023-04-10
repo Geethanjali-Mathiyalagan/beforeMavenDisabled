@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" th:href="@{/css/NewStyle.css}">
+<link rel="stylesheet" th:href="@{/css/SelectCourse.css}">
+<body>
+ 
+
+<input TYPE="button" VALUE="Back" class="btn" onClick="history.go(-1);">
+                  <form th:action="@{/CourseDetail}" method="post" th:each="courseList:${SearchCourse}">              
+                       
+                   
+                              <div class="container">              
+                      
+<div id="menu" class="fas fa-bars"></div>
+
+<nav class="navbar">
+
+</nav>
+
+<section class="course">
+    <div class="box">
+  
+                            <p class="courses">Course:&emsp;<span th:text="${courseList.courseName}"></span></p>
+                            <div class="stars">
+                            <em  class="fas fa-star">Rating:&emsp;<span th:text="${courseList.ratingOfCourse}"></span></em>
+                            </div>
+                            <p class="courses">Duration:&emsp;<em class="far fa-calendar"></em>&emsp;<span th:text="${courseList.durationOfCourse}"></span></p>
+                         
+
+                         <button type="submit" name="checkBox" class="courses1" th:value="${courseList.categoryId}" >ENROLL NOW</button>
+ <div class="video">
+     <video width="340" height="220" controls class="vid">
+        <source src="\Video\5 Reasons why online education is better(360P).mp4" type="video/mp4">
+    <track src="/captions_file.vtt" label="English" kind="captions" srclang="en-us" default >
+   
+    </video>
+    
+</div> 
+</div>
+
+</section>
+
+    </div>               
+     </form>
+    
+</body>
+          
+</html>

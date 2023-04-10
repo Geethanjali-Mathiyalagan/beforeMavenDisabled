@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/Popup.css}">
+<title>Insert title here</title>
+</head>
+
+    <body>
+    <form th:action="@{/registerPopup}">
+      <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <em class="checkmark">✓</em>
+      </div>
+        <h1>Register Successfully...</h1> 
+        <p>Your Learner Id <span th:text="${session.learnId}"></span><br/>Please remember for Login! </p>
+      </div>
+      <div>
+      <button type="submit">OK</button>
+      </div>
+    </form>
+    </body>
+</html>
