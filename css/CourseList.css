@@ -1,0 +1,92 @@
+@charset "ISO-8859-1";
+
+:root{
+    --violet:#6c5ce7;
+    --pink:#FC427B;
+    --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+
+body
+{
+   background:#e0ffff;
+   background-size:cover;
+    background-repeat: no-repeat;
+}
+.card {
+  
+    transition: 0.1s;
+    width: 280px;
+    height: 380px;
+    display: inline-block;
+    background-color: white;
+    margin-left: 100px;
+    margin-top: 25px;
+    padding-bottom: 20px;
+    color: var(--pink);
+    border-radius: 10px; 
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 2px 16px;
+    float: left;
+}
+
+button {
+    background: var(--gradient);
+   
+    color: white;
+   
+}
+.button{
+height: 40px;
+width:90px;
+margin-left: 80px;
+margin-top: -1px;
+
+}
+.h3{
+font-size:14px;
+font-weight:lighter;
+margin-left: -20px;
+}
+.h4{
+
+margin-left: 10px;
+}
+.h5{
+
+margin-left: 10px;
+}
+.but{
+	
+margin-left: 1000px;
+margin-top: -40px;
+height: 32px;
+border-radius: 25px;
+	
+}
+
+
+
+.img{
+margin-top:-18px;
+align-items: center;
+border-radius: 10px;
+}
+
+.name{
+color:blue;
+}
+
+.btn{
+margin-left: 1000px;
+margin-top: -2px;
+}
+.Learnings{
+margin-left: 1000px;
+margin-top: -50px;
+}

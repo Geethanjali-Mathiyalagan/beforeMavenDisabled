@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+ .upload{
+                width: 382px;
+                overflow: hidden;
+                margin: 60px auto;
+               
+                padding: 80px;
+                border-radius: 15px;
+                background-color: aliceblue;
+            }
+            input[type=text], input[type=password] {
+                 width: 100%;
+                 padding: 12px 20px;
+                 margin: 8px 0;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 box-sizing: border-box;
+            }
+            
+            :root{
+    --violet:#6c5ce7;
+    --pink:#FC427B;
+    --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+body{
+background: var(--gradient);
+}
+        

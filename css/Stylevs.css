@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #6fd9f6;
+}
+input{
+    margin: 0.25em 0em 1em 0em;
+    outline: none;
+    padding: 12px 20px;
+    border: none;
+    background-color: #f3f4f4;
+    border-radius: 0.25em;
+    color: rgb(24, 21, 23);
+}
+button{
+    padding: 0.75em;
+    border: none;
+    outline: none;
+    background-color: rgb(60, 168, 246);
+    color: white;
+    border-radius: 0.25em;
+    opacity: 0.9;
+}
+button:hover{
+    cursor: pointer;
+    background-color:blue;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    padding: 16px;
+}

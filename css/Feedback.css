@@ -1,0 +1,89 @@
+@charset "ISO-8859-1";
+:root{
+    --violet:#6c5ce7;
+    --pink:#FC427B;
+    --gradient:linear-gradient(90deg,var(--violet),var(--pink));
+}
+
+body
+{
+    background:url("/image/Registers.jpg");
+   background-size:cover;
+    background-repeat: no-repeat;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.1s;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    background-color: white;
+    margin-left: 100px;
+    margin-top: 25px;
+    padding-bottom: 20px;
+    color: var(--pink);
+    
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 2px 16px;
+    float: left;
+}
+
+button:hover {
+    background: var(--gradient);
+   
+    color: white;
+   
+}
+.button{
+height: 40px;
+width:90px;
+margin-left: 80px;
+margin-top: -1px;
+
+}
+.h3{
+font-size:14px;
+
+margin-left: -20px;
+}
+.h4{
+
+margin-left: 10px;
+}
+.h5{
+
+margin-left: 10px;
+}
+
+.but{
+height: 40px;
+width:100px;
+margin-left: 1100px;
+}
+
+.img{
+align-items: center;
+height: 5px;
+width: 5px;
+}
+.image{
+	
+height:130px;
+width:230px;
+margin-left: 10px;	
+}
+
+.name{
+color: white;
+}
+
+.btn{
+margin-left: 1000px;
+margin-top: -2px;
+}
